@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import StreamingResponse
-from app.logger import logger
-from app.api_consumer import run_pipeline
-from app.excel_generator import generate_excel
+from dataexport.app.logger import logger
+from dataexport.app.api_consumer import run_pipeline
+from dataexport.app.excel_generator import generate_excel
 import io
 import re
 
@@ -38,4 +38,5 @@ def gerar_excel(
 
     except Exception as e:
         logger.exception(f"Error generating excel: {e}")
+
         raise HTTPException(status_code=500, detail="Internal error generating excel...")
