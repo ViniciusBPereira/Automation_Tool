@@ -1,5 +1,5 @@
 import pandas as pd
-from app.logger import logger
+from dataexport.app.logger import logger
 
 def generate_excel(data, output_stream):
     if not data:
@@ -18,4 +18,5 @@ def generate_excel(data, output_stream):
     pivot_df = pivot_df.drop(columns=['Tarefaid'])
     pivot_df = pivot_df.drop(columns=['Tipo'])
     pivot_df.to_excel(output_stream, index=False)
+
     logger.info("Excel generated...")
