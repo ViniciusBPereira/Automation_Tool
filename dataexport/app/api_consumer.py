@@ -2,8 +2,8 @@ import os
 import requests
 from typing import List, Dict
 
-from app.logger import logger
-from app.models import Tarefa, Checklist
+from dataexport.app.logger import logger
+from dataexport.app.models import Tarefa, Checklist
 
 
 # === Configurações ===
@@ -95,3 +95,4 @@ def run_pipeline(mes: str, cr: str, nome: str) -> List[Dict]:
         logger.warning("Nenhuma tarefa encontrada.")
         return []
     return fetch_checklist(tarefas)
+
