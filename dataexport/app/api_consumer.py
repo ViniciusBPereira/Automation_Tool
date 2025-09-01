@@ -75,6 +75,7 @@ def fetch_checklist(tarefas: List[Tarefa]) -> List[Dict]:
             for item in checklist_items:
                 resultados.append(Checklist(
                     tarefaId=t.Id,
+                    nome=t.Nome,
                     local=t.Local,
                     data=t.TerminoReal,
                     recursonome=item.get("recursonome"),
@@ -95,4 +96,5 @@ def run_pipeline(mes: str, cr: str, nome: str) -> List[Dict]:
         logger.warning("Nenhuma tarefa encontrada.")
         return []
     return fetch_checklist(tarefas)
+
 
