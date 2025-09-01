@@ -10,7 +10,7 @@ def generate_excel(data, output_stream):
     df = df[df['Perguntadescricao'].notna()]
     df = df[df['Tipo'] == 1]
     pivot_df = df.pivot_table(
-        index=['Tarefaid','Recursonome','Local','Data','Tipo'],
+        index=['Tarefaid','Recursonome','Local','Data','Nome','Tipo'],
         columns='Perguntadescricao',
         values='Conteudo',
         aggfunc='first'
@@ -20,3 +20,4 @@ def generate_excel(data, output_stream):
     pivot_df.to_excel(output_stream, index=False)
 
     logger.info("Excel generated...")
+
